@@ -1,7 +1,8 @@
 from turtle import Turtle
 
-class Paddle:
+class Paddle(Turtle):
     def __init__(self):
+        #
         paddle = Turtle()
         paddle.shape("square")
         paddle.resizemode("user")
