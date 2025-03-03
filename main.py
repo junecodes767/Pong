@@ -1,7 +1,8 @@
 from turtle import Screen, Turtle
-
+from paddle import Paddle
 #initalise the  screen object
 screen = Screen()
+
 screen.tracer(0)
 #set up the screen size
 screen.setup(width=1080, height=600)
@@ -23,7 +24,15 @@ for _ in range(40):
     dotted_line.forward(5)
     dotted_line.penup()
 
-screen.update()   
-    
+
+ 
+paddle = Paddle()
+ 
+screen.update()
+screen.listen()
+
+screen.onkey(paddle.move_up,"Up")
+screen.onkey()
+
 # to exit the screen
 screen.exitonclick()
