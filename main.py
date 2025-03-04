@@ -26,12 +26,16 @@ for _ in range(40):
 
 
  
-paddle = Paddle()
- 
+r_paddle = Paddle((500,0))
+l_paddle =Paddle((-500,0))
 screen.listen()
 
-screen.onkey(paddle.move_up,"Up")
-screen.onkey(paddle.move_down,"Down")
+screen.onkey(r_paddle.move_up,"Up")
+screen.onkey(r_paddle.move_down,"Down")
+
+
+screen.onkey(l_paddle.move_up,"s")
+screen.onkey(l_paddle.move_down,"x")
 game_is_on =True
 
 while game_is_on:
