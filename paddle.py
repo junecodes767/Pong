@@ -7,8 +7,7 @@ class Paddle(Turtle):
         self.paddle.penup()
         self.paddle.color("white") # paddle color
         self.paddle.shape("square") # paddle shape
-        self.paddle.resizemode("user")
-        self.paddle.turtlesize(stretch_wid=3,stretch_len=1,outline=2) #paddle resize
+        self.paddle.shapesize(stretch_wid=5,stretch_len=1, ) #paddle resize
         self.paddle.goto(x=500, y=0)
          
         
