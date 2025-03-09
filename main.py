@@ -1,11 +1,13 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
+from ball import Ball
+import time
 #initalise the  screen object
 screen = Screen()
 
 screen.tracer(0)
 #set up the screen size
-screen.setup(width=1080, height=600)
+screen.setup(width=800, height=600)
 
 #set the background color
 screen.bgcolor("black")
@@ -24,10 +26,10 @@ for _ in range(40):
     dotted_line.forward(5)
     dotted_line.penup()
 
-
+ball = Ball()
  
-r_paddle = Paddle((500,0))
-l_paddle =Paddle((-500,0))
+r_paddle = Paddle((350,0))
+l_paddle =Paddle((-350,0))
 screen.listen()
 
 screen.onkey(r_paddle.move_up,"Up")
@@ -37,9 +39,14 @@ screen.onkey(r_paddle.move_down,"Down")
 screen.onkey(l_paddle.move_up,"s")
 screen.onkey(l_paddle.move_down,"x")
 game_is_on =True
+ 
+#shows the position of the ball at the end of the screen
+ 
 
 while game_is_on:
+    time.sleep(0.1)
     screen.update()
+    ball.move()
 
 # to exit the screen
 screen.exitonclick()
