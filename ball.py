@@ -9,6 +9,7 @@ class Ball(Turtle):
         self.penup()
         self.color("red")
         self.goto(0,0)
+        self.speed(0)
         self.x = 10
         self.y =10
         
@@ -18,10 +19,20 @@ class Ball(Turtle):
          y =self.ycor() + self.y
          self.goto(x,y)
          
-    def bounce (self):
+    def bounce_y (self):
         #let the ball bounce
         self.y*=-1
         
+        
+    def bounce_x (self):
+        #let the ball bounce
+        self.x*=-1
+    
+    def reset_position(self):
+        #brings ball back to home
+        self.goto(0,0)
+        self.bounce_x()
+         
 
     
      
