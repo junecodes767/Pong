@@ -7,7 +7,7 @@ class Ball(Turtle):
         #create a ball
         self.shape("circle")
         self.penup()
-        self.color("red")
+        self.color("white")
         self.goto(0,0)
         self.x = 10
         self.y =10

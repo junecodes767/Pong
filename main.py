@@ -13,6 +13,22 @@ screen.setup(width=800, height=600)
 #set the background color
 screen.bgcolor("black")
 
+
+pause_button = Turtle()
+pause_button.shape("triangle")
+
+pause_button.color("white")
+pause_button.shapesize(10,7)
+
+def button_dissapear():
+    """removes play button from the middle of the screen"""
+     
+    
+    pause_button.hideturtle()
+    
+ 
+  
+
 # initialise the turtle class
 dotted_line = Turtle()
 dotted_line.color("white")
@@ -40,32 +56,45 @@ screen.onkey(r_paddle.move_down,"Down")
 
 screen.onkey(l_paddle.move_up,"s")
 screen.onkey(l_paddle.move_down,"x")
-game_is_on =True
+game_is_on =False
  
 #shows the position of the ball at the end of the screen
  
-
-while game_is_on:
+screen.update()
+def start_game():
+   global game_is_on  
+   game_is_on =True
+   button_dissapear()
+   
+while game_is_on ==False:
+    screen.update()
+    
+    screen.onkey(fun=start_game,key="space" ) 
+     
+   
+      
+while game_is_on  :
     time.sleep(ball.move_speed)
     screen.update()
+     
     ball.move()
-    
+        
     if ball.ycor()> 290 or ball.ycor()<-290:
-        ball.bounce_y()
+            ball.bounce_y()
 
-# detect collision with right paddle
+    # detect collision with right paddle
     if ball.distance(r_paddle)<50 and ball.xcor()>320  or ball.distance(l_paddle) < 50 and ball.xcor() <-320 :
-       ball.bounce_x()
-      
-    # #detect when the ball had gone of screen on the right side
+            ball.bounce_x()
+
+        # #detect when the ball had gone of screen on the right side
     if ball.xcor() > 390:
-        ball.reset_position() 
-        scoreboard.l_point()
-       
-     # detect when the ball has gone of screen on the left side 
+            ball.reset_position() 
+            scoreboard.l_point()
+        
+        # detect when the ball has gone of screen on the left side 
     if ball.xcor() < -390:
-         ball.reset_position()   
-         scoreboard.r_point()
+            ball.reset_position()   
+            scoreboard.r_point()
          
 # to exit the screen
 screen.exitonclick()
