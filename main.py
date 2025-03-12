@@ -46,7 +46,7 @@ game_is_on =True
  
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
     
@@ -56,7 +56,7 @@ while game_is_on:
 # detect collision with right paddle
     if ball.distance(r_paddle)<50 and ball.xcor()>320  or ball.distance(l_paddle) < 50 and ball.xcor() <-320 :
        ball.bounce_x()
-     
+      
     # #detect when the ball had gone of screen on the right side
     if ball.xcor() > 390:
         ball.reset_position() 

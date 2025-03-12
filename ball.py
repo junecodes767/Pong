@@ -9,9 +9,11 @@ class Ball(Turtle):
         self.penup()
         self.color("red")
         self.goto(0,0)
-        self.speed(0)
         self.x = 10
         self.y =10
+        self.move_speed =0.1
+    
+     
         
     def move (self):
          """Move ball to the top right of the screen"""
@@ -27,10 +29,12 @@ class Ball(Turtle):
     def bounce_x (self):
         #let the ball bounce
         self.x*=-1
+        self.move_speed *= 0.9
     
     def reset_position(self):
         #brings ball back to home
         self.goto(0,0)
+        self.move_speed =0.1
         self.bounce_x()
          
 
