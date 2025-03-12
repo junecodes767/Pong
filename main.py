@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 #initalise the  screen object
 screen = Screen()
@@ -27,7 +28,8 @@ for _ in range(40):
     dotted_line.penup()
 
 ball = Ball()
- 
+scoreboard= Scoreboard()
+
 r_paddle = Paddle((350,0))
 l_paddle =Paddle((-350,0))
 screen.listen()
@@ -58,10 +60,12 @@ while game_is_on:
     # #detect when the ball had gone of screen on the right side
     if ball.xcor() > 390:
         ball.reset_position() 
+        scoreboard.l_point()
        
      # detect when the ball has gone of screen on the left side 
     if ball.xcor() < -390:
          ball.reset_position()   
+         scoreboard.r_point()
          
 # to exit the screen
 screen.exitonclick()
